@@ -12,6 +12,7 @@ import {
     ControlledSelect, TrackValueOfUnControlledInput,
     UnControlledInput
 } from "./component/stories/input.stories";
+import {Select} from "./component/select/Select";
 
 
 function App() {
@@ -21,22 +22,30 @@ function App() {
 
   return (
       <div className={s.container}>
-        <PageTitle title={'This is first component'}/>
+          {/*<Select items={[]} onChange={(x) => x} value={'-----'}/>*/}
+       {/* <PageTitle title={'This is first component'}/>
         <OnOff on={switchOn} onChange={setSwitchOn}/> {switchOn.toString()}
         <Rating value={ratingValue} onClick={setRatingValue}/>
-        <Accordion titleValue={'First accordion'} collapsed={accordionCollapsed} onChange={() => {setAccordionCollapsed(!accordionCollapsed)}}/>
+        <Accordion
+            titleValue={'First accordion'}
+            collapsed={accordionCollapsed}
+            onChange={() => {setAccordionCollapsed(!accordionCollapsed)}}
+            // items={[{title:'Ihor', value: 1}, {title: 'Gleb', value: 2}, {title: 'Meri', value: 3}]}
+            // onClick={(x) => x}
+        />
         <ControlledInput />
         <ControlledCheckBox />
-        <ControlledSelect />
+        <ControlledSelect />*/}
 
         {/*<PageTitle title={'This is second component'}/>
         <UnControlOnOff/>
         <UnControlOnOff onChange={setSwitchOn}/>
         <UnControlRating defaultValue={0} onChange={() => {}} />
-        <UnControlAccordion titleValue={'Second accordion'}/>
+
         <UnControlledInput/>
         <ControlledInputWithFixedValue/>
         <TrackValueOfUnControlledInput/>*/}
+          <UnControlAccordion titleValue={'Second accordion'}/>
       </div>
   )
 }
