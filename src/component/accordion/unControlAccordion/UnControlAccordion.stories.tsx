@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from "react"
 import {AccordionPropsType, UnControlAccordion} from './UnControlAccordion'
 import {Meta, Story} from "@storybook/react";
 
