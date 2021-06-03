@@ -1,47 +1,31 @@
 import React, {useState, useEffect} from "react";
 
 export default {
-    title: 'useEffect demo'
+    title: 'clock demo'
 }
 
-export const SimpleExample= () => {
-    const [fake, setFake] = useState(1)
-    const [counter, setCounter] = useState(1)
 
-    console.log("SimpleExample")
 
-    useEffect(() => {
-        console.log('useEffect every render')
-        document.title = counter.toString()
-    })
-    useEffect(() => {
-        console.log('useEffect only first render (componentDidMount)')
-        document.title = counter.toString()
-    })
-    useEffect(() => {
-        console.log('useEffect only first render and every counter change')
-        document.title = counter.toString()
-    })
+export const Clock= () => {
+    const [state, setState] = useState(0)
 
-    return <>
-        hello, {counter} {fake}
-        <button onClick={() => setFake(fake => fake + 1 )}>fake</button>
-        <button onClick={() => setCounter(state => state + 1 )}>counter</button>
-    </>
-}
+    const hours = new Date().getHours()
+    const minutes = new Date().getMinutes()
+    const seconds = new Date().getSeconds()
 
-export const SetTimeoutExample= () => {
-    const [counter, setCounter] = useState(1)
+    const hoursNow = (hours < 10) ? '0'+hours : hours
+    const minutesNow = (minutes < 10) ? '0'+minutes : minutes
+    const secondsNow = (seconds < 10) ? '0'+seconds : seconds
 
-    console.log("SetTimeoutExample")
+
 
     useEffect(() => {
         setInterval(() => {
-            setCounter(state => state + 1)
+            setState(state => state + 1)
         }, 1000)
     }, [])
 
     return <>
-        Hello, counter: {counter}
+        {hoursNow}:{minutesNow}:{secondsNow}
     </>
 }

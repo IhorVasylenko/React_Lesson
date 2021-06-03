@@ -6,13 +6,14 @@ import {Accordion} from "./component/accordion/controlAccordion/Accordion"
 import {UnControlRating} from "./component/rating/unControlRating/UnControlRating"
 import {UnControlOnOff} from "./component/onOf/unControlOnOff/UnControlOnOff"
 import { UnControlAccordion } from './component/accordion/unControlAccordion/UnControlAccordion'
-import {
-    ControlledCheckBox,
-    ControlledInput, ControlledInputWithFixedValue,
-    ControlledSelect, TrackValueOfUnControlledInput,
-    UnControlledInput
-} from "./component/stories/input.stories";
+import {ControlledCheckBox, ControlledInput, ControlledInputWithFixedValue, ControlledSelect,
+    TrackValueOfUnControlledInput, UnControlledInput} from "./component/stories/input.stories";
 import {Select} from "./component/select/Select";
+import {SelectVSCounter} from "./component/stories/SelectOrCounterMemoHalper.story";
+import {LikeUseCallback} from "./component/stories/UseMemo.stories";
+import {Example1} from "./component/stories/UseState.stories";
+import {SetTimeoutExample, SimpleExample} from "./component/stories/UseEffect.stories";
+import {Clock} from "./component/stories/Clock.stories";
 
 
 function App() {
@@ -22,8 +23,8 @@ function App() {
 
   return (
       <div className={s.container}>
-          {/*<Select items={[]} onChange={(x) => x} value={'-----'}/>*/}
-       {/* <PageTitle title={'This is first component'}/>
+          {/*<Select items={[]} onChange={(x) => x} value={'-----'}/>
+        <PageTitle title={'This is first component'}/>
         <OnOff on={switchOn} onChange={setSwitchOn}/> {switchOn.toString()}
         <Rating value={ratingValue} onClick={setRatingValue}/>
         <Accordion
@@ -35,7 +36,14 @@ function App() {
         />
         <ControlledInput />
         <ControlledCheckBox />
-        <ControlledSelect />*/}
+        <ControlledSelect />
+        <SelectVSCounter />
+        <LikeUseCallback />
+        <Example1 />
+        <SimpleExample />
+        <SetTimeoutExample />*/}
+
+        <Clock />
 
         {/*<PageTitle title={'This is second component'}/>
         <UnControlOnOff/>
@@ -44,8 +52,8 @@ function App() {
 
         <UnControlledInput/>
         <ControlledInputWithFixedValue/>
-        <TrackValueOfUnControlledInput/>*/}
-          <UnControlAccordion titleValue={'Second accordion'}/>
+        <TrackValueOfUnControlledInput/>
+          <UnControlAccordion titleValue={'Second accordion'}/>*/}
       </div>
   )
 }

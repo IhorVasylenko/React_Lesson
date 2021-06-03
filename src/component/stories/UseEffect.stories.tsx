@@ -1,43 +1,47 @@
-import React, {useMemo, useState} from "react";
+import React, {useState, useEffect} from "react";
 
 export default {
-    title: 'useState demo'
+    title: 'useEffect demo'
 }
 
-function generateDate () {
-    //difficult counting
-    console.log('generateDate')
-    return 1
-}
+export const SimpleExample= () => {
+    const [fake, setFake] = useState(1)
+    const [counter, setCounter] = useState(1)
 
-export const Example1 = () => {
-    console.log("Example1")
+    console.log("SimpleExample")
 
-    /*const initValue = useMemo(generateDate, [])  //ВАРИАНТ-1: передаем вызов функции переменной и эту
-    const [counter, setCounter] = useState(initValue) //переменную помещаем в state в качестве стартового значения*/
+    useEffect(() => {
+        console.log('useEffect every render')
+        document.title = counter.toString()
+    })
+    useEffect(() => {
+        console.log('useEffect only first render (componentDidMount)')
+        document.title = counter.toString()
+    })
+    useEffect(() => {
+        console.log('useEffect only first render and every counter change')
+        document.title = counter.toString()
+    })
 
-    //ВАРИАНТ-2: помещаем результат вызова функции в качестве начального значения
-    //чтобы ф-ция была вызвана единожды при первой отрисовке ком-нты
-    const [counter, setCounter] = useState(generateDate)
-
-    //Вариант-3: помещаем функцию в обработчик
     return <>
-        <button onClick={() => setCounter(state => state + 1 )}>+</button>
-        {counter}
+        hello, {counter} {fake}
+        <button onClick={() => setFake(fake => fake + 1 )}>fake</button>
+        <button onClick={() => setCounter(state => state + 1 )}>counter</button>
     </>
+}
 
-    /*//Вариант-2: создаем функцию которую передаем callback-ом
-    const changer = (state: number) => {
-        return state + 1
-    }
-    return <>
-        <button onClick={() => setCounter(counter + 1)}>+</button>
-        {counter}
-    </>*/
+export const SetTimeoutExample= () => {
+    const [counter, setCounter] = useState(1)
 
-    /*//Вариант-1: делаем изменения на прямую со стейтом
+    console.log("SetTimeoutExample")
+
+    useEffect(() => {
+        setInterval(() => {
+            setCounter(state => state + 1)
+        }, 1000)
+    }, [])
+
     return <>
-        <button onClick={() => setCounter(counter + 1)}>+</button>
-        {counter}
-    </>*/
+        Hello, counter: {counter}
+    </>
 }

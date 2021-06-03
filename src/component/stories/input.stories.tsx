@@ -1,5 +1,4 @@
 import React, {ChangeEvent, useRef, useState} from 'react'
-import {action} from '@storybook/addon-actions'
 import {Meta} from "@storybook/react";
 
 export default {
@@ -26,7 +25,7 @@ export const GetValueOfUnControlledInputWithFixedValueByButtonPress = () => {
 
 export const GetValueOfUnControlledInputByButtonPress = () => {
     const [value, setValue] = useState('')
-    const inputRef = useRef<HTMLInputElement>(null)
+    let inputRef = useRef<HTMLInputElement>(null)  //если небудет работать поставить (null)
     const save = () => {
         const el = inputRef.current as HTMLInputElement
         setValue(el.value)
@@ -52,6 +51,9 @@ export const ControlledCheckBox = () => {
 
     return <input type='checkbox' checked={parentValue} onChange={onChange}/>
 }
+
+
+
 
 export const ControlledSelect = () => {
     const [parentValue, setParentValue] = useState<string | undefined>(undefined)
