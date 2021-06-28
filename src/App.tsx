@@ -9,7 +9,7 @@ import { UnControlAccordion } from './component/accordion/unControlAccordion/UnC
 import {ControlledCheckBox, ControlledInput, ControlledInputWithFixedValue, ControlledSelect,
     TrackValueOfUnControlledInput, UnControlledInput} from "./component/stories/input.stories";
 import {Select} from "./component/select/Select";
-import {SelectVSCounter} from "./component/stories/SelectOrCounterMemoHalper.story";
+import {SelectVSCounter} from "./component/stories/SelectOrCounterMemoHalper.stories";
 import {LikeUseCallback} from "./component/stories/UseMemo.stories";
 import {Example1} from "./component/stories/UseState.stories";
 import {SetTimeoutExample, SimpleExample} from "./component/stories/UseEffect.stories";
